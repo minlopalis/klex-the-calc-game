@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/happy.mp3-5a151db045e61373475f6102529dd64a.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level1/happy.mp3"
+dest_files=[ "res://.import/happy.mp3-5a151db045e61373475f6102529dd64a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mud_02.ogg-ff0fc8a0ab0917a72039d323d1557312.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Spider/mud_02.ogg"
+dest_files=[ "res://.import/mud_02.ogg-ff0fc8a0ab0917a72039d323d1557312.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

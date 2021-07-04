@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Characters/Doc/Doc.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Doc/player_walk2.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Doc/player_walk1.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Doc/player_idle.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Doc/player_talk.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/audrey-kids/AudreyKids.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://Characters/Doc/glassPanel.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "talk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128, 93 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "talk"
+
+[sub_resource type="Animation" id=4]
+length = 10.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3, 5, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -200, 0 ), Vector2( -200, 0 ), Vector2( 0, 0 ), Vector2( 200, 0 ), Vector2( 200, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 3, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "walk", "idle", "walk", "idle", "walk" ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="Doc" type="Node2D"]
+
+[node name="Doc" type="Area2D" parent="."]
+collision_layer = 64
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Doc"]
+frames = SubResource( 1 )
+animation = "walk"
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doc"]
+position = Vector2( 2, -65 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Doc"]
+autoplay = "walk"
+anims/talk = SubResource( 3 )
+anims/walk = SubResource( 4 )
+
+[node name="Messages" type="Node2D" parent="Doc"]
+position = Vector2( -14, 16 )
+
+[node name="Level1" type="Node2D" parent="Doc/Messages"]
+visible = false
+position = Vector2( 7, -40 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Doc/Messages/Level1"]
+margin_left = -221.0
+margin_top = -236.0
+margin_right = 279.0
+margin_bottom = -36.0
+rect_min_size = Vector2( 500, 200 )
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 11
+patch_margin_right = 6
+patch_margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Doc/Messages/Level1/NinePatchRect"]
+margin_left = 19.0
+margin_top = 32.0
+margin_right = 494.0
+margin_bottom = 245.0
+custom_fonts/font = SubResource( 5 )
+text = "Hi Klex, 
+There's a bit of a drop ahead, but it should lead 
+you to the flag.  It's a bit dark, so you might need a light. 
+
+Hint: Turn on the screen light by pressing the 'L' key."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Node2D" parent="Doc/Messages"]
+visible = false
+position = Vector2( 7, -40 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Doc/Messages/Level2"]
+margin_left = -221.0
+margin_top = -236.0
+margin_right = 279.0
+margin_bottom = -36.0
+rect_min_size = Vector2( 500, 200 )
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 11
+patch_margin_right = 6
+patch_margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Doc/Messages/Level2/NinePatchRect"]
+margin_left = 21.0
+margin_top = 14.0
+margin_right = 496.0
+margin_bottom = 227.0
+custom_fonts/font = SubResource( 5 )
+text = "Brrr, it's cold here. . . I can't seem to think straight. 
+I'd like you to help me solve some maths problems, but 
+it looks like your logic board is busted.  
+
+Once you have found a new logic board you'll be able
+to compute maths problems. "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Doc" to="Doc" method="_on_Doc_body_entered"]
+[connection signal="body_exited" from="Doc" to="Doc" method="_on_Doc_body_exited"]

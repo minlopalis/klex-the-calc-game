@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/adventuring_song.mp3-fdf943049a6af64eadd842a741694eeb.mp3str"
+
+[deps]
+
+source_file="res://Interface/NewGame/adventuring_song.mp3"
+dest_files=[ "res://.import/adventuring_song.mp3-fdf943049a6af64eadd842a741694eeb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

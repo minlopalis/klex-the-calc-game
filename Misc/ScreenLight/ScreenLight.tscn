@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Misc/ScreenLight/lightmap.png" type="Texture" id=1]
+
+[node name="ScreenLight" type="Light2D"]
+texture = ExtResource( 1 )

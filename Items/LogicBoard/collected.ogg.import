@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/collected.ogg-9af8c5b9882ceef1a57df70f953ad21f.oggstr"
+
+[deps]
+
+source_file="res://Items/LogicBoard/collected.ogg"
+dest_files=[ "res://.import/collected.ogg-9af8c5b9882ceef1a57df70f953ad21f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

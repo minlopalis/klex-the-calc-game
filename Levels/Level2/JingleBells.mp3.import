@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/JingleBells.mp3-701dd9c0b0114827dd35299c810b6ed4.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level2/JingleBells.mp3"
+dest_files=[ "res://.import/JingleBells.mp3-701dd9c0b0114827dd35299c810b6ed4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

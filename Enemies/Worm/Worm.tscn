@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Enemies/Worm/worm_walk.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Worm/worm.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/Worm/Worm.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/Worm/mud_16.ogg" type="AudioStream" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 3 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.8, 1.8 ), Vector2( 0.01, 0.01 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WormCollision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Squish:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "wiggle"
+length = 10.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -150, 0 ), Vector2( -150, 0 ), Vector2( 150, 0 ), Vector2( 150, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 21, 4 )
+
+[node name="Worm" type="Node2D"]
+
+[node name="Worm" type="Area2D" parent="." groups=[
+"enemy",
+]]
+collision_layer = 2
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Worm"]
+frames = SubResource( 1 )
+animation = "walk"
+frame = 1
+playing = true
+
+[node name="WormCollision" type="CollisionShape2D" parent="Worm"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Worm"]
+autoplay = "wiggle"
+anims/die = SubResource( 3 )
+anims/wiggle = SubResource( 4 )
+
+[node name="Stomp" type="Area2D" parent="Worm"]
+collision_layer = 4
+
+[node name="StompCollision" type="CollisionShape2D" parent="Worm/Stomp"]
+position = Vector2( 0, -7 )
+shape = SubResource( 5 )
+
+[node name="StompTimer" type="Timer" parent="Worm/Stomp"]
+one_shot = true
+
+[node name="Squish" type="AudioStreamPlayer2D" parent="Worm"]
+stream = ExtResource( 4 )
+
+[connection signal="body_entered" from="Worm" to="Worm" method="_on_Worm_body_entered"]
+[connection signal="body_entered" from="Worm/Stomp" to="Worm" method="_on_Stomp_body_entered"]
+[connection signal="timeout" from="Worm/Stomp/StompTimer" to="Worm" method="_on_StompTimer_timeout"]

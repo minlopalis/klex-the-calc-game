@@ -1,0 +1,274 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interface/Calculator/metalPanel.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/cursed-timer-ulil-font/CursedTimerUlil-Aznm.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Interface/Calculator/Calculator.gd" type="Script" id=3]
+[ext_resource path="res://Interface/Calculator/glassPanel.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[node name="Calculator" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -150.0
+margin_right = 125.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+margin_right = 250.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 250, 300 )
+texture = ExtResource( 1 )
+region_rect = Rect2( -1.29939, 1.08632, 101.185, 98.2583 )
+patch_margin_left = 88
+patch_margin_top = 85
+patch_margin_right = 87
+patch_margin_bottom = 86
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 146.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 99.9199, 100.464 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Display" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0666667, 0.580392, 0, 1 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 54.0
+margin_right = 200.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 78.0
+margin_right = 200.0
+margin_bottom = 250.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer"]
+margin_left = 14.0
+margin_right = 186.0
+margin_bottom = 172.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 172.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button7" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+text = "7"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button8" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_left = 44.0
+margin_right = 84.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+text = "8"
+
+[node name="Button9" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_left = 88.0
+margin_right = 128.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+text = "9"
+
+[node name="Button4" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_top = 44.0
+margin_right = 40.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 40, 40 )
+text = "4"
+
+[node name="Button5" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_left = 44.0
+margin_top = 44.0
+margin_right = 84.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 40, 40 )
+text = "5"
+
+[node name="Button6" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_left = 88.0
+margin_top = 44.0
+margin_right = 128.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 40, 40 )
+text = "6"
+
+[node name="Button1" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_top = 88.0
+margin_right = 40.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 40, 40 )
+text = "1"
+
+[node name="Button2" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_left = 44.0
+margin_top = 88.0
+margin_right = 84.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 40, 40 )
+text = "2"
+
+[node name="Button3" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_left = 88.0
+margin_top = 88.0
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 40, 40 )
+text = "3"
+
+[node name="Button0" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+margin_top = 132.0
+margin_right = 40.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 40, 40 )
+text = "0"
+
+[node name="Clear" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+self_modulate = Color( 1, 0, 0, 1 )
+margin_left = 44.0
+margin_top = 132.0
+margin_right = 84.0
+margin_bottom = 172.0
+text = "C"
+
+[node name="Equals" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer"]
+modulate = Color( 0.32549, 1, 0.407843, 1 )
+margin_left = 88.0
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 172.0
+text = "="
+
+[node name="GridContainer2" type="GridContainer" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 132.0
+margin_right = 172.0
+margin_bottom = 172.0
+
+[node name="Divide" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2"]
+self_modulate = Color( 1, 1, 0, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+text = "/"
+
+[node name="Multiply" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2"]
+modulate = Color( 1, 1, 0, 1 )
+margin_top = 44.0
+margin_right = 40.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 40, 40 )
+text = "x"
+
+[node name="Minus" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2"]
+modulate = Color( 1, 1, 0, 1 )
+margin_top = 88.0
+margin_right = 40.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 40, 40 )
+text = "-"
+
+[node name="Plus" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2"]
+modulate = Color( 1, 1, 0, 1 )
+margin_top = 132.0
+margin_right = 40.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 40, 40 )
+text = "+"
+
+[node name="Close" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 254.0
+margin_right = 200.0
+margin_bottom = 274.0
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button7" to="." method="_on_Button7_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button8" to="." method="_on_Button8_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button9" to="." method="_on_Button9_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button6" to="." method="_on_Button6_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Button0" to="." method="_on_Button0_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Clear" to="." method="_on_Clear_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer/Equals" to="." method="_on_Equals_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2/Divide" to="." method="_on_Divide_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2/Multiply" to="." method="_on_Multiply_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2/Minus" to="." method="_on_Minus_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/CenterContainer/HBoxContainer/GridContainer2/Plus" to="." method="_on_Plus_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/Close" to="." method="_on_Close_pressed"]

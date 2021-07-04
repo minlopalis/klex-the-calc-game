@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/jingles_STEEL02.ogg-0314e9abd5f5e6ed8749caea5c774a7d.oggstr"
+
+[deps]
+
+source_file="res://Items/Health/jingles_STEEL02.ogg"
+dest_files=[ "res://.import/jingles_STEEL02.ogg-0314e9abd5f5e6ed8749caea5c774a7d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

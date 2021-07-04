@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/JingleBells.ogg-be6c65a399c5d786c6239456253506a9.oggstr"
+
+[deps]
+
+source_file="res://Levels/Level2/JingleBells.ogg"
+dest_files=[ "res://.import/JingleBells.ogg-be6c65a399c5d786c6239456253506a9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

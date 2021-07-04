@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/evil-empire-font/EvilEmpire-4BBVK.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/audrey-kids/AudreyKids.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Interface/Messages/LogicBoardCollected.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 47
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="LogicBoardCollected" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.45098, 0.662745, 0.803922, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 83.0
+margin_top = 82.0
+margin_right = 940.0
+margin_bottom = 518.0
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 857.0
+margin_bottom = 105.0
+custom_fonts/font = SubResource( 1 )
+text = "Collected Logic Board!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 109.0
+margin_right = 857.0
+margin_bottom = 436.0
+custom_fonts/font = SubResource( 2 )
+text = "Congratulations! You found a logic board.
+Now you can perform basic math problems.
+
+ To perform calculations, press the 'C' key.
+
+press 'Enter' to continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fonts/evil-empire-font/EvilEmpire-4BBVK.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Interface/GameOver/backgroundCastles.png" type="Texture" id=2]
+[ext_resource path="res://Interface/GameOver/GameOver.gd" type="Script" id=3]
+[ext_resource path="res://Interface/GameOver/klex_duck.png" type="Texture" id=4]
+[ext_resource path="res://Interface/GameOver/gameover.wav" type="AudioStream" id=5]
+[ext_resource path="res://Fonts/my-kids-handwritten-font/MyKidsHandwrittenBasic-gxxZY.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Themes/Default/default.tres" type="Theme" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+outline_size = 1
+outline_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="GameOver" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Klex" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -105.714
+margin_top = -382.909
+margin_right = -9.71394
+margin_bottom = -286.909
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -261.5
+margin_top = -79.5
+margin_right = 261.5
+margin_bottom = 79.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 523.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.752941, 0, 1 )
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 139.0
+margin_right = 523.0
+margin_bottom = 185.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgain" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 157.0
+margin_right = 291.0
+margin_bottom = 46.0
+theme = ExtResource( 8 )
+custom_fonts/font = SubResource( 2 )
+text = "Try Again"
+
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 295.0
+margin_right = 366.0
+margin_bottom = 46.0
+theme = ExtResource( 8 )
+text = "Quit"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 5.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TryAgain" to="." method="_on_TryAgain_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]

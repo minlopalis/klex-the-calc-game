@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/my-kids-handwritten-font/MyKidsHandwrittenBasic-gxxZY.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/Default/Button/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://Themes/Default/Button/focus.tres" type="StyleBox" id=3]
+[ext_resource path="res://Themes/Default/Button/disabled.tres" type="StyleBox" id=4]
+[ext_resource path="res://Themes/Default/Button/hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://Themes/Default/Button/normal.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 1 )
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 1, 1, 1, 0 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 0
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 4 )
+Button/styles/focus = ExtResource( 3 )
+Button/styles/hover = ExtResource( 5 )
+Button/styles/normal = ExtResource( 6 )
+Button/styles/pressed = ExtResource( 2 )

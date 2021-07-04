@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mud_16.ogg-4c3538072f74ae9164c920d9fa045611.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Worm/mud_16.ogg"
+dest_files=[ "res://.import/mud_16.ogg-4c3538072f74ae9164c920d9fa045611.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

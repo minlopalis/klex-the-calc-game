@@ -1,0 +1,230 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Interface/NewGame/backgroundDesert.png" type="Texture" id=1]
+[ext_resource path="res://Characters/Doc/player_slide.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/AlienShipGreen/AlienShipGreen.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/my-kids-handwritten-font/MyKidsHandwrittenBasic-gxxZY.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/evil-empire-font/EvilEmpire-4BBVK.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Themes/Default/default.tres" type="Theme" id=6]
+[ext_resource path="res://Interface/NewGame/ClassificationG.jpg" type="Texture" id=7]
+[ext_resource path="res://Characters/Klex/platformChar_duck.png" type="Texture" id=8]
+[ext_resource path="res://Interface/NewGame/NewGame.gd" type="Script" id=9]
+[ext_resource path="res://Interface/Instructions/Instructions.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Interface/NewGame/mushroom dance_0.ogg" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+outline_size = 1
+outline_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "screen"
+length = 10.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Alien:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 400, 28 ), Vector2( 150, 28 ), Vector2( 400, 28 ), Vector2( 800, 28 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Alien:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 2, 2 ), Vector2( 0.01, 0.01 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VBoxContainer/HBoxContainer2/Title:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VBoxContainer/HBoxContainer2/Title:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 92, 0 ), Vector2( 64, 0 ), Vector2( 92, 0 ), Vector2( 64, 0 ), Vector2( 92, 0 ), Vector2( 64, 0 ), Vector2( 92, 0 ), Vector2( 64, 0 ), Vector2( 92, 0 ), Vector2( 64, 0 ), Vector2( 92, 0 ) ]
+}
+
+[node name="NewGame" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Alien" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -312.606
+margin_top = 28.0
+margin_right = -188.598
+margin_bottom = 151.0
+rect_scale = Vector2( 0.802384, 0.802384 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Doc" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -177.0
+margin_top = -162.0
+margin_right = -97.0
+margin_bottom = -52.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Klex" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -287.0
+margin_right = -4.0
+margin_bottom = -191.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -416.5
+margin_top = -92.5
+margin_right = 416.5
+margin_bottom = 92.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 833.0
+margin_bottom = 135.0
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 92.0
+margin_right = 741.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.752941, 0, 1 )
+text = "KLEX THE CALC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 139.0
+margin_right = 833.0
+margin_bottom = 185.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 218.0
+margin_right = 356.0
+margin_bottom = 46.0
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+text = "New Game"
+
+[node name="Instructions" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 360.0
+margin_right = 539.0
+margin_bottom = 46.0
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+text = "Instructions"
+
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 543.0
+margin_right = 614.0
+margin_bottom = 46.0
+theme = ExtResource( 6 )
+text = "Quit"
+
+[node name="Classification" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -206.0
+margin_top = -103.0
+margin_right = 154.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="Instructions" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = 17.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "screen"
+anims/screen = SubResource( 3 )
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Instructions" to="." method="_on_Instructions_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]

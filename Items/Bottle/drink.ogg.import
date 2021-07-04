@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/drink.ogg-f1f79657d7bec30607879490efb393c4.oggstr"
+
+[deps]
+
+source_file="res://Items/Bottle/drink.ogg"
+dest_files=[ "res://.import/drink.ogg-f1f79657d7bec30607879490efb393c4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
